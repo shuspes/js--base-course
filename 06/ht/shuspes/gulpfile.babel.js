@@ -6,6 +6,7 @@ import concat from "gulp-concat";
 import babel from "gulp-babel";
 import del from "del";
 import uglify from "gulp-uglify";
+import browserSync from "browser-sync";
 
 gulp.task("styles", function() {
   return gulp.src("source/styles/**/*.scss")
@@ -36,8 +37,18 @@ gulp.task("clean", function() {
 gulp.task("watch", function() {
   gulp.watch("source/scripts/**/*.js", gulp.series("scripts"));
   gulp.watch("source/styles/**/*.scss", gulp.series("styles"));  
+  gulp.watch("source/index.html", gulp.series("page"));    
+});
+
+const bs = browserSync.create();
+
+gulp.task("serve", function() {
+  bs.init({
+    server: "public"
+  });
+  bs.watch("public/**/*.*").on("change", bs.reload);
 });
 
 gulp.task("default", gulp.series("clean", "page", gulp.parallel("scripts", "styles")));
 
-gulp.task("dev", gulp.series("default", "watch"));
+gulp.task("dev", gulp.series("default", gulp.parallel("watch", "serve")));
