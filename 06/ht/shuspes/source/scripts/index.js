@@ -1,5 +1,5 @@
 import Template from "./utils/Template";
-import {favouriteItem, listContainer, historyItem} from "./utils/templates";
+import {favouriteItem, listContainer, historyItem, mainLayout} from "./utils/templates";
 import List from "./components/List";
 import {favouriteList as favouriteListStubData, historyList as historyListStubData} from "./stub/list";
 
@@ -15,4 +15,13 @@ const historyListItemsTemplate = new Template(historyItem);
 const historyList = new List(listTemplate, historyListItemsTemplate, historyListStubData);
 //NOTE: history list <-
 
-document.getElementById("root").innerHTML = favouriteList.render();
+//NOTE: main page ->
+const mainPageTemplate = new Template(mainLayout);
+const mainPageObj = {
+  historyList: historyList.render(),
+  favouriteList: favouriteList.render()
+};
+const mainPage = mainPageTemplate.createStringFromTemplate(mainPageObj);
+//NOTE: main page <-
+
+document.getElementById("root").innerHTML = mainPage;

@@ -13,4 +13,19 @@ export const historyItem = [
     "</span>",
   "</div>"
 ].join("");
-// export const mainLayout = 
+export const mainLayout = [
+  '<div class="css-mainPage">',
+    '<div class="css-mainPage-header">',
+      '<div>{{callType}}</div>',
+      '<div>{{search}}</div>',
+    '</div>',
+    '<div class="css-mainPage-map">',
+      '<div>{{map}}</div>',
+    '</div>',
+    '<div class="css-mainPage-footer">',
+      '<div class="css-mainPage-footer-block">{{historyList}}</div>',
+      '<div>{{weather}}</div>',
+      '<div class="css-mainPage-footer-block">{{favouriteList}}</div>',
+    '</div>',
+  '</div>'
+].join("");

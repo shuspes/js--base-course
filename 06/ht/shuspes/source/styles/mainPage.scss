@@ -1,0 +1,26 @@
+$footer-height: 200px;
+
+.css-mainPage {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  .css-mainPage-header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  .css-mainPage-footer {
+    height: $footer-height;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+    .css-mainPage-footer-block {
+      width: calc(100% / 3);
+    }
+  }
+}
