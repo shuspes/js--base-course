@@ -7,6 +7,9 @@ import babel from "gulp-babel";
 import del from "del";
 import uglify from "gulp-uglify";
 import browserSync from "browser-sync";
+import browserify from "browserify";
+import babelify from "babelify";
+import stream from "vinyl-source-stream";
 
 gulp.task("styles", function() {
   return gulp.src("source/styles/**/*.scss")
@@ -17,12 +20,14 @@ gulp.task("styles", function() {
 });
 
 gulp.task("scripts", function() {
-  return gulp.src("source/scripts/**/*.js")
-              .on("data", file => console.log(file))
-              .pipe(babel())
-              // .pipe(uglify()) //NOTE: move to build?
-              .pipe(concat("scripts.js"))
-              .pipe(gulp.dest("public"));
+  return browserify({
+    entries: "source/scripts/index.js"
+  })
+  .transform(babelify)
+  .bundle()
+  .pipe(stream('scripts.js'))
+  // .pipe(uglify()) //NOTE: move to build?
+  .pipe(gulp.dest("public"));
 });
 
 gulp.task("page", function() {
