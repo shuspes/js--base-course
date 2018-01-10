@@ -1,0 +1,10 @@
+#root { //REMOVE
+  $root-width: 300px;
+  $root-height: 400px;
+
+  width: $root-width;
+  height: $root-height;
+  position: absolute;
+  left: calc(50% - #{$root-width} / 2);
+  top: calc(50% - #{$root-height} / 2);
+}

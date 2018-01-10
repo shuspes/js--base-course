@@ -1,0 +1,17 @@
+.css-listContainer {
+  height: calc(100% - 40px);
+  width: calc(100% - 40px);
+  border: 2px solid black;
+  padding: 20px;
+  border-radius: 8px;
+
+  .css-favouriteItem {
+    text-align: center;
+    margin: 5px;
+
+    .css-favouriteItem-name {
+      color: blue;
+      cursor: pointer;
+    }
+  }
+}
