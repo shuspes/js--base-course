@@ -10,8 +10,8 @@ export default class Template {
   };
 
   createStringFromTemplate(dataObj) {
-    var result = this.templateString;
-    for(var key in dataObj) {
+    let result = this.templateString;
+    for(const key in dataObj) {
         result = this.replaceByTag(result, key, dataObj[key]);
     }
     return result;

@@ -1,14 +1,14 @@
-export const listContainer = "<div class='css-listContainer'>{{items}}</div>";
+export const listContainer = "<div class='css-listContainer {{className}}'>{{items}}</div>";
 export const favouriteItem = [
   "<div class='css-list-item css-favouriteItem'>",
-    "<span class='css-list-item-name css-favouriteItem-name'>",
+    "<span class='css-list-item-name css-favouriteItem-name {{className}}'>",
       "{{Name}}",
     "</span>",
   "</div>"
 ].join("");
 export const historyItem = [
   "<div class='css-list-item css-historyItem'>",
-    "<span class='css-list-item-name css-historyItem-name'>",
+    "<span class='css-list-item-name css-historyItem-name {{className}}'>",
       "{{Name}}",
     "</span>",
   "</div>"
